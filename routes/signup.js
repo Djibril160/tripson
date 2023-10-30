@@ -12,12 +12,12 @@ const { isStrongPassword } = require('../modules/passwordValidator');
 
 // route to signup
 router.post('/', async (req,res) => {
-  if (!checkBody(req.body, ['username', 'password', 'ville'])) {
+  if (!checkBody(req.body, ['username', 'password', 'city'])) {
     res.json({ result: false, error: 'missing or empty fileds'});
     return;
   };
     
-  const { username, password, ville } = req.body;  
+  const { username, password, city } = req.body;  
 
   //check if password format is valid 
   if (!isStrongPassword(password)) {
@@ -35,7 +35,7 @@ router.post('/', async (req,res) => {
         const newUser = new User({
           username,
           password: hash,
-          ville,
+          city,
           token: uid2(32)
         })
 
