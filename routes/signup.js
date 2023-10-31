@@ -45,7 +45,7 @@ router.post('/', async (req,res) => {
         });
     } else {
       // User already exists in database
-      res.json({result: false, error: 'User already exists' });
+      res.json({result: false, error: 'User already exists bro' });
       return;
     }
   })
